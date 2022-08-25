@@ -2,10 +2,6 @@
 
 <br>
 
-# Quick Compo
-
-<br>
-
 ## Description
 
 This is an app to find the best places in the world to drink coffee and buy coffee beans from different origins and countries around the world.
