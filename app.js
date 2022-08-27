@@ -21,23 +21,29 @@ const { isAuthenticated } = require("./middleware/jwt.middleware");
 const allRoutes = require("./routes/index.routes");
 app.use("/api", allRoutes);
 
+const profileRouter = require("./routes/profile.routes");
+app.use("/api", profileRouter);
+
+const authRouter = require("./routes/auth.routes");
+app.use("/auth", authRouter);
+
 const coffeeBeansRoutes = require("./routes/coffeebeans.routes");
 app.use("/api", isAuthenticated, coffeeBeansRoutes);
 
 const coffeeShopRoutes = require("./routes/coffeeshop.routes");
 app.use("/api", isAuthenticated, coffeeShopRoutes);
 
-const authRouter = require("./routes/auth.routes");
-app.use("/auth", authRouter);
-
-const listRouter = require("./routes/list.routes");
-app.use("/api", listRouter);
+const coffeeListRouter = require("./routes/coffeelist.routes");
+app.use("/api", coffeeListRouter);
 
 const beansDetailsRouter = require("./routes/beansdetails.routes");
 app.use("/api", beansDetailsRouter);
 
 const shopDetailsRouter = require("./routes/shopdetails.routes");
 app.use("/api", shopDetailsRouter);
+
+const myListRouter = require("./routes/mylist.routes");
+app.use("/api", myListRouter);
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);
