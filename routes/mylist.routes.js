@@ -9,8 +9,8 @@ router.get('/mylist/:userId', async (req, res) => {
   const { userId } = req.params;
 
   try {
-    let myBeans = await CoffeeBeans.findById(userId)
-    let myShops = await CoffeeShop.findById(userId)
+    let myBeans = await CoffeeBeans.find({user: userId})
+    let myShops = await CoffeeShop.find({user: userId})
 
     res.json({myBeans, myShops})
 

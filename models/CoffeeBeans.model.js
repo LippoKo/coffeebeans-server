@@ -13,7 +13,7 @@ const coffeeBeansSchema = new Schema(
 			type: String,
 			required: true,
 		},
-		image: {
+		imageUrl: {
 			type: String,
 		},
 		location: {

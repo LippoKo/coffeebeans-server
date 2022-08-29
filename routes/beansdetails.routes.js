@@ -9,7 +9,7 @@ router.get("/beansdetails/:coffeebeansId", (req, res, next) => {
 	const { coffeebeansId } = req.params;
 
 	CoffeeBeans.findById(coffeebeansId)
-		.populate('user')
+		.populate("user")
 		.then((beans) => {
 			res.status(200).json(beans);
 		})
@@ -19,11 +19,11 @@ router.get("/beansdetails/:coffeebeansId", (req, res, next) => {
 // Edit Beans
 router.put("/beansdetails/:coffeebeansId", (req, res, next) => {
 	const { coffeebeansId } = req.params;
-	const { store, origin, description, location, image } = req.body;
+	const { store, origin, description, location, imageUrl } = req.body;
 
 	CoffeeBeans.findByIdAndUpdate(
 		coffeebeansId,
-		{ store, origin, description, location, image },
+		{ store, origin, description, location, imageUrl },
 		{ new: true }
 	)
 		.then((updatedBeans) => res.status(201).json(updatedBeans))

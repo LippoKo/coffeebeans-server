@@ -4,12 +4,12 @@ const CoffeeShop = require("../models/CoffeeShop.model");
 
 // Routes
 router.post("/coffeeshop", (req, res, next) => {
-	const { store, description, image, location, user } = req.body;
+	const { store, description, imageUrl, location, user } = req.body;
 
 	CoffeeShop.create({
 		store,
 		description,
-		image,
+		imageUrl,
 		location,
 		user,
 	})
