@@ -32,6 +32,9 @@ const userSchema = new Schema(
 			type: String,
 			/* required: true, */
 		},
+		imageUrl: {
+			type: String,
+		},
 
 		createdBeans: [{ type: Schema.Types.ObjectId, ref: "CoffeeBeans" }],
 

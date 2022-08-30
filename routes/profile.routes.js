@@ -17,15 +17,30 @@ router.get("/profile/:userId", (req, res) => {
 // Edit User
 router.put("/profile/:userId", (req, res) => {
 	const { userId } = req.params;
-	const { firstName, lastName, username, image } = req.body;
+	const { firstName, lastName, username, imageUrl } = req.body;
 
 	User.findByIdAndUpdate(
 		userId,
-		{ firstName, lastName, username, image },
+		{ firstName, lastName, username, imageUrl },
 		{ new: true }
 	)
 		.then((updatedUser) => res.status(200).json(updatedUser))
 		.catch((error) => res.json(error));
+});
+
+module.exports = router;
+
+// Delete Beans
+router.delete("/profile/:userId", (req, res, next) => {
+	const { userId } = req.params;
+
+	User.findByIdAndDelete(userId)
+		.then(() =>
+			res.status(200).json({
+				message: `User with id ${userId} was deleted successfully`,
+			})
+		)
+		.catch((err) => res.json(err));
 });
 
 module.exports = router;

@@ -14,7 +14,7 @@ const User = require("../models/User.model");
 const { isAuthenticated } = require("../middleware/jwt.middleware");
 
 router.get("/verify", isAuthenticated, (req, res, next) => {
-	console.log("payloaaad", req.payload);
+	console.log("Logado", req.payload.username);
 
 	res.status(200).json(req.payload);
 });

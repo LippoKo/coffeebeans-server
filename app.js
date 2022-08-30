@@ -33,8 +33,11 @@ app.use("/api", isAuthenticated, coffeeBeansRoutes);
 const coffeeShopRoutes = require("./routes/coffeeshop.routes");
 app.use("/api", isAuthenticated, coffeeShopRoutes);
 
-const coffeeListRouter = require("./routes/coffeelist.routes");
-app.use("/api", coffeeListRouter);
+const beansListRouter = require("./routes/beanslist.routes");
+app.use("/api", beansListRouter);
+
+const shopListRouter = require("./routes/shoplist.routes");
+app.use("/api", shopListRouter);
 
 const beansDetailsRouter = require("./routes/beansdetails.routes");
 app.use("/api", beansDetailsRouter);

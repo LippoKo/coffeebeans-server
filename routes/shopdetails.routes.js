@@ -18,11 +18,11 @@ router.get("/shopdetails/:coffeeshopId", (req, res, next) => {
 // Edit Shop
 router.put("/shopdetails/:coffeeshopId", (req, res, next) => {
 	const { coffeeshopId } = req.params;
-	const { store, description, location, image } = req.body;
+	const { store, description, location, imageUrl } = req.body;
 
 	CoffeeShop.findByIdAndUpdate(
 		coffeeshopId,
-		{ store, description, location, image },
+		{ store, description, location, imageUrl },
 		{ new: true }
 	)
 		.then((updatedShop) => res.status(201).json(updatedShop))
