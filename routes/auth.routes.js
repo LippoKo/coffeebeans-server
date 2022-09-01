@@ -29,7 +29,7 @@ router.post("/signup", (req, res) => {
 		password === "" ||
 		email === ""
 	) {
-		res.status(400).json({ message: "All fields are required." });
+		res.status(400).json({ errorMessage: "All fields are required." });
 		return;
 	}
 
@@ -113,9 +113,9 @@ router.post("/login", (req, res, next) => {
 				}
 
 				// desestruture todas as propriedades do usuario
-				const { _id, username } = user;
+				const { _id, username, imageUrl } = user;
 
-				const payload = { _id, username };
+				const payload = { _id, username, imageUrl };
 
 				const authToken = jwt.sign(payload, process.env.TOKEN_SECRET, {
 					algorithm: "HS256",

@@ -5,6 +5,7 @@ const coffeeShopSchema = new Schema(
 	{
 		store: {
 			type: String,
+			required: true,
 		},
 		description: {
 			type: String,

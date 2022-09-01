@@ -5,6 +5,7 @@ const coffeeBeansSchema = new Schema(
 	{
 		store: {
 			type: String,
+			required: true,
 		},
 		origin: {
 			type: [String],
